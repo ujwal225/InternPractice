@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categoryItems = Category::all();
+        $categoryItems = Category::orderBy('created_at', 'desc')->get();
         return view('category.categoryList', compact('categoryItems'));
     }
 
