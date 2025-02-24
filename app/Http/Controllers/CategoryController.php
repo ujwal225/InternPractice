@@ -30,7 +30,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|regex:/^[a-zA-Z0-9\s]+$/'
+            'title' => 'required|string|unique:category,title|regex:/^[a-zA-Z0-9\s]+$/'
         ]);
         $records = Category::create([
             'title' => $request->input('title')

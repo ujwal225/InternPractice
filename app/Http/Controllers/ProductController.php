@@ -32,7 +32,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|regex:/^[a-zA-Z0-9\s]+$/',
+            'title' => 'required|string|unique:product,title|regex:/^[a-zA-Z0-9\s]+$/',
             'category_id' => 'required|integer',
             'price' => 'required|integer|regex:/^\d+(\.\d{1,2})?$/|min:0',
             'status' => 'required|boolean',
